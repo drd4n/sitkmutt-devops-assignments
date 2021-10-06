@@ -9,6 +9,7 @@ docker build ./details/ -t details
 docker build ./productpage/ -t productpage
 
 #run container
+cd ratings
 docker run -d --name mongodb -p 27017:27017 \
   -v $(pwd)/databases:/docker-entrypoint-initdb.d bitnami/mongodb:5.0.2-debian-10-r2
 
