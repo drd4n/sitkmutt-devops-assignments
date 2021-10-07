@@ -17,6 +17,7 @@ services:
       - "8080:8080"
     environment:
       SERVICE_VERSION: v2
+      STAR_COLOR: "yellow"
       MONGO_DB_URL: "mongodb://mongodb:27017/ratings"
       MONGO_DB_USERNAME: ratings
       MONGO_DB_PASSWORD: CHANGEME
@@ -26,7 +27,8 @@ services:
     ports:
       - "8082:9080"
     environment:
-      RATINGS_HOSTNAME: http://ratings:8080
+      RATINGS_SERVICE: http://ratings:8080
+      ENABLE_RATINGS: "true"
   details:
     build: "../details"
     image: ghcr.io/drd4n/bookinfo-details:dev
@@ -41,3 +43,4 @@ services:
       RATINGS_HOSTNAME: http://ratings:8080
       DETAILS_HOSTNAME: http://details:8081
       REVIEWS_HOSTNAME: http://reviews:9080
+      FLOOD_FACTOR: 1
