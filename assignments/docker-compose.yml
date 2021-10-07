@@ -11,7 +11,7 @@ services:
       MONGODB_PASSWORD: CHANGEME
       MONGODB_DATABASE: ratings
   ratings:
-    build: "./ratings"
+    build: "../ratings"
     image: ghcr.io/drd4n/bookinfo-ratings:dev
     ports:
       - "8080:8080"
@@ -21,19 +21,19 @@ services:
       MONGO_DB_USERNAME: ratings
       MONGO_DB_PASSWORD: CHANGEME
   reviews:
-    build: "./reviews"
+    build: "../reviews"
     image: ghcr.io/drd4n/bookinfo-reviews:dev
     ports:
       - "8082:9080"
     environment:
-      RATINGS_HOSTNAME:  http://ratings:8080
+      RATINGS_HOSTNAME: http://ratings:8080
   details:
-    build: "./details"
+    build: "../details"
     image: ghcr.io/drd4n/bookinfo-details:dev
     ports: 
       - "8081:8081"
   productpage:
-    build: "./productpage"
+    build: "../productpage"
     image: ghcr.io/drd4n/bookinfo-productpage:dev
     ports:
       - "8083:8083"
