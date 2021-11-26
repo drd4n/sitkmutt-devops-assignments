@@ -1,9 +1,5 @@
 set -e
 
-
-# Add bitnami charts repository
-helm repo add bitnami https://charts.bitnami.com/bitnami
-
 #create secret
 kubectl create secret generic bookinfo-dev-ratings-mongodb-secret \
   --from-literal=mongodb-password=CHANGEME \
